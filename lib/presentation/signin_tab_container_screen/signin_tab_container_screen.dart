@@ -1,10 +1,11 @@
-import 'controller/signin_tab_container_controller.dart';
 import 'package:ecommerce_seller_app/core/app_export.dart';
 import 'package:ecommerce_seller_app/presentation/signin_page/signin_page.dart';
 import 'package:ecommerce_seller_app/widgets/app_bar/appbar_leading_iconbutton.dart';
 import 'package:ecommerce_seller_app/widgets/app_bar/appbar_title.dart';
 import 'package:ecommerce_seller_app/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+
+import 'controller/signin_tab_container_controller.dart';
 
 // ignore_for_file: must_be_immutable
 class SigninTabContainerScreen extends GetWidget<SigninTabContainerController> {
@@ -26,14 +27,16 @@ class SigninTabContainerScreen extends GetWidget<SigninTabContainerController> {
             children: [
               SizedBox(height: 15.v),
               _buildTabview(),
-              SizedBox(
-                height: 650.v,
-                child: TabBarView(
-                  controller: controller.tabviewController,
-                  children: [
-                    SigninPage(),
-                    SigninPage(),
-                  ],
+              Expanded(
+                child: SizedBox(
+                  height: 650.v,
+                  child: TabBarView(
+                    controller: controller.tabviewController,
+                    children: [
+                      SigninPage(),
+                      SigninPage(),
+                    ],
+                  ),
                 ),
               ),
             ],
