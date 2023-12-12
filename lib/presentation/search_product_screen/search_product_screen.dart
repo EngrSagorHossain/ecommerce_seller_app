@@ -1,0 +1,10 @@
+import '../search_product_screen/widgets/userprofile_item_widget.dart';import 'controller/search_product_controller.dart';import 'models/userprofile_item_model.dart';import 'package:ecommerce_seller_app/core/app_export.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_leading_iconbutton.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_title_searchview.dart';import 'package:ecommerce_seller_app/widgets/app_bar/custom_app_bar.dart';import 'package:flutter/material.dart';class SearchProductScreen extends GetWidget<SearchProductController> {const SearchProductScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(appBar: _buildAppBar(), body: Padding(padding: EdgeInsets.only(top: 18.v), child: Obx(() => ListView.separated(physics: BouncingScrollPhysics(), shrinkWrap: true, separatorBuilder: (context, index) {return SizedBox(height: 1.v);}, itemCount: controller.searchProductModelObj.value.userprofileItemList.value.length, itemBuilder: (context, index) {UserprofileItemModel model = controller.searchProductModelObj.value.userprofileItemList.value[index]; return UserprofileItemWidget(model, onTapUserProfileEditButton: () {onTapUserProfileEditButton();});}))))); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar() { return CustomAppBar(leadingWidth: 66.h, leading: AppbarLeadingIconbutton(imagePath: ImageConstant.imgArrowDownPrimarycontainer, margin: EdgeInsets.only(left: 24.h, top: 7.v, bottom: 7.v), onTap: () {onTapArrowDown();}), title: AppbarTitleSearchview(margin: EdgeInsets.only(left: 13.h), hintText: "msg_search_product_for".tr, controller: controller.searchController)); } 
+/// Navigates to the editProductScreen when the action is triggered.
+onTapUserProfileEditButton() { Get.toNamed(AppRoutes.editProductScreen); } 
+/// Navigates to the homeSettingsScreen when the action is triggered.
+onTapArrowDown() { Get.toNamed(AppRoutes.homeSettingsScreen, ); } 
+ }

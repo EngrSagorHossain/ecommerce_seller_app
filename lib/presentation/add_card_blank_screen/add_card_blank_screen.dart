@@ -1,0 +1,16 @@
+import 'controller/add_card_blank_controller.dart';import 'package:ecommerce_seller_app/core/app_export.dart';import 'package:ecommerce_seller_app/presentation/profile_page/profile_page.dart';import 'package:ecommerce_seller_app/presentation/search_package_page/search_package_page.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_leading_iconbutton.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_title.dart';import 'package:ecommerce_seller_app/widgets/app_bar/custom_app_bar.dart';import 'package:ecommerce_seller_app/widgets/custom_bottom_bar.dart';import 'package:ecommerce_seller_app/widgets/custom_elevated_button.dart';import 'package:flutter/material.dart';class AddCardBlankScreen extends GetWidget<AddCardBlankController> {const AddCardBlankScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(appBar: _buildAppBar(), body: SizedBox(width: double.maxFinite, child: Column(children: [SizedBox(height: 240.v), _buildScrollView()])), bottomNavigationBar: _buildBottomBar())); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar() { return CustomAppBar(leadingWidth: 66.h, leading: AppbarLeadingIconbutton(imagePath: ImageConstant.imgArrowDownPrimarycontainer, margin: EdgeInsets.only(left: 24.h, top: 7.v, bottom: 7.v)), centerTitle: true, title: AppbarTitle(text: "lbl_payment_setup".tr)); } 
+/// Section Widget
+Widget _buildScrollView() { return Expanded(child: SingleChildScrollView(child: Padding(padding: EdgeInsets.only(left: 80.h, right: 80.h, bottom: 5.v), child: Column(children: [SizedBox(width: 213.h, child: Text("msg_there_is_no_card".tr, maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.center, style: CustomTextStyles.bodyMediumBluegray700.copyWith(height: 1.71))), SizedBox(height: 17.v), CustomElevatedButton(text: "lbl_add_a_card".tr, margin: EdgeInsets.only(left: 13.h, right: 10.h), rightIcon: Container(margin: EdgeInsets.only(left: 6.h), child: CustomImageView(imagePath: ImageConstant.imgFrameWhiteA700, height: 18.adaptSize, width: 18.adaptSize)), buttonStyle: CustomButtonStyles.fillPrimaryTL5, buttonTextStyle: CustomTextStyles.titleSmallWhiteA700, onPressed: () {onTapAddACard();})])))); } 
+/// Section Widget
+Widget _buildBottomBar() { return CustomBottomBar(onChanged: (BottomBarEnum type) {Get.toNamed(getCurrentRoute(type), id: 1);}); } 
+///Handling route based on bottom click actions
+String getCurrentRoute(BottomBarEnum type) { switch (type) {case BottomBarEnum.Add11: return AppRoutes.searchPackagePage; case BottomBarEnum.Add2: return "/"; case BottomBarEnum.Checklist2: return "/"; case BottomBarEnum.Search: return "/"; case BottomBarEnum.Framebluegray4000220x20: return AppRoutes.profilePage; default: return "/";} } 
+///Handling page based on route
+Widget getCurrentPage(String currentRoute) { switch (currentRoute) {case AppRoutes.searchPackagePage: return SearchPackagePage(); case AppRoutes.profilePage: return ProfilePage(); default: return DefaultWidget();} } 
+/// Navigates to the addCardBlankOneScreen when the action is triggered.
+onTapAddACard() { Get.toNamed(AppRoutes.addCardBlankOneScreen, ); } 
+ }

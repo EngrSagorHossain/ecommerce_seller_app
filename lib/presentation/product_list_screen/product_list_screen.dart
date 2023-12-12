@@ -1,0 +1,16 @@
+import '../product_list_screen/widgets/productlist_item_widget.dart';import 'controller/product_list_controller.dart';import 'models/productlist_item_model.dart';import 'package:ecommerce_seller_app/core/app_export.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_leading_iconbutton.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_title.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_trailing_iconbutton_one.dart';import 'package:ecommerce_seller_app/widgets/app_bar/custom_app_bar.dart';import 'package:ecommerce_seller_app/widgets/custom_icon_button.dart';import 'package:ecommerce_seller_app/widgets/custom_search_view.dart';import 'package:flutter/material.dart';class ProductListScreen extends GetWidget<ProductListController> {const ProductListScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(resizeToAvoidBottomInset: false, appBar: _buildAppBar(), body: SizedBox(width: mediaQueryData.size.width, child: SingleChildScrollView(padding: EdgeInsets.only(top: 13.v), child: Padding(padding: EdgeInsets.only(left: 25.h, right: 25.h, bottom: 5.v), child: Column(children: [_buildMenu(), SizedBox(height: 30.v), _buildProductList()])))))); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar() { return CustomAppBar(leadingWidth: 66.h, leading: AppbarLeadingIconbutton(imagePath: ImageConstant.imgArrowDownPrimarycontainer, margin: EdgeInsets.only(left: 24.h, top: 7.v, bottom: 7.v), onTap: () {onTapArrowDown();}), centerTitle: true, title: AppbarTitle(text: "lbl_create_packages".tr), actions: [AppbarTrailingIconbuttonOne(imagePath: ImageConstant.imgMynauiEdit, margin: EdgeInsets.symmetric(horizontal: 24.h, vertical: 14.v), onTap: () {onTapMynauiEdit();})]); } 
+/// Section Widget
+Widget _buildMenu() { return Row(mainAxisAlignment: MainAxisAlignment.center, children: [Padding(padding: EdgeInsets.symmetric(vertical: 5.v), child: CustomIconButton(height: 42.adaptSize, width: 42.adaptSize, padding: EdgeInsets.all(11.h), child: CustomImageView(imagePath: ImageConstant.imgMenu))), Expanded(child: Padding(padding: EdgeInsets.only(left: 11.h), child: CustomSearchView(controller: controller.searchController, hintText: "lbl_search_product".tr)))]); } 
+/// Section Widget
+Widget _buildProductList() { return Obx(() => ListView.separated(physics: NeverScrollableScrollPhysics(), shrinkWrap: true, separatorBuilder: (context, index) {return SizedBox(height: 18.v);}, itemCount: controller.productListModelObj.value.productlistItemList.value.length, itemBuilder: (context, index) {ProductlistItemModel model = controller.productListModelObj.value.productlistItemList.value[index]; return ProductlistItemWidget(model, onTapProductCardButton: () {onTapProductCardButton();});})); } 
+/// Navigates to the categoryTwoScreen when the action is triggered.
+onTapProductCardButton() { Get.toNamed(AppRoutes.categoryTwoScreen); } 
+/// Navigates to the createPackageScreen when the action is triggered.
+onTapArrowDown() { Get.toNamed(AppRoutes.createPackageScreen, ); } 
+/// Navigates to the searchPackageOneScreen when the action is triggered.
+onTapMynauiEdit() { Get.toNamed(AppRoutes.searchPackageOneScreen, ); } 
+ }

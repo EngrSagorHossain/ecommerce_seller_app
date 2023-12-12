@@ -1,0 +1,5 @@
+import '../../../core/app_export.dart';import 'orderdetailslist3_item_model.dart';/// This class defines the variables used in the [delivery_in_progress_screen],
+/// and is typically used to hold data that is passed between different parts of the application.
+class DeliveryInProgressModel {Rx<List<Orderdetailslist3ItemModel>> orderdetailslist3ItemList = Rx([Orderdetailslist3ItemModel(orderImage:ImageConstant.img5d02da5df552836.obs,moreImages:ImageConstant.imgHuaweiFreebuds.obs,moreImages1:ImageConstant.imgDCc1.obs,moreImages2:ImageConstant.img9447441f632825.obs,moreText: "2 more".obs,orderText: "Order ID: AA4587V".obs,packageText: "Electric package 1".obs,priceText: "50.00".obs),Orderdetailslist3ItemModel(orderImage:ImageConstant.img5d02da5df552836.obs,moreImages:ImageConstant.imgHuaweiFreebuds.obs,moreImages1:ImageConstant.imgDCc1.obs,moreImages2:ImageConstant.img9447441f632825.obs,moreText: "2 more".obs,orderText: "Order ID: AA4587V".obs,packageText: "Electric package 1".obs,priceText: "50.00".obs)]);
+
+ }

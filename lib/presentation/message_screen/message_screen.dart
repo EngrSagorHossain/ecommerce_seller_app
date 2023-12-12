@@ -1,0 +1,14 @@
+import '../message_screen/widgets/moviedetails_item_widget.dart';import 'controller/message_controller.dart';import 'models/moviedetails_item_model.dart';import 'package:ecommerce_seller_app/core/app_export.dart';import 'package:ecommerce_seller_app/core/utils/validation_functions.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_leading_iconbutton.dart';import 'package:ecommerce_seller_app/widgets/app_bar/appbar_title.dart';import 'package:ecommerce_seller_app/widgets/app_bar/custom_app_bar.dart';import 'package:ecommerce_seller_app/widgets/custom_text_form_field.dart';import 'package:flutter/material.dart';
+// ignore_for_file: must_be_immutable
+class MessageScreen extends GetWidget<MessageController> {MessageScreen({Key? key}) : super(key: key);
+
+GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(resizeToAvoidBottomInset: false, appBar: _buildAppBar(), body: Form(key: _formKey, child: SingleChildScrollView(padding: EdgeInsets.only(top: 15.v), child: Padding(padding: EdgeInsets.symmetric(horizontal: 19.h), child: Column(children: [CustomTextFormField(controller: controller.nameController, hintText: "lbl_search_name".tr, hintStyle: CustomTextStyles.bodyMediumBluegray90075, textInputAction: TextInputAction.done, prefix: Container(margin: EdgeInsets.fromLTRB(22.h, 19.v, 7.h, 17.v), child: CustomImageView(imagePath: ImageConstant.imgSearchBlueGray200, height: 16.adaptSize, width: 16.adaptSize)), prefixConstraints: BoxConstraints(maxHeight: 52.v), validator: (value) {if (!isText(value)) {return "err_msg_please_enter_valid_text".tr;} return null;}, contentPadding: EdgeInsets.only(top: 15.v, right: 30.h, bottom: 15.v)), SizedBox(height: 19.v), _buildMovieDetails()])))))); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar() { return CustomAppBar(leadingWidth: 64.h, leading: AppbarLeadingIconbutton(imagePath: ImageConstant.imgArrowDownPrimarycontainer, margin: EdgeInsets.only(left: 22.h, top: 7.v, bottom: 7.v), onTap: () {onTapArrowDown();}), centerTitle: true, title: AppbarTitle(text: "lbl_inbox".tr)); } 
+/// Section Widget
+Widget _buildMovieDetails() { return Obx(() => ListView.separated(physics: NeverScrollableScrollPhysics(), shrinkWrap: true, separatorBuilder: (context, index) {return Padding(padding: EdgeInsets.symmetric(vertical: 7.5.v), child: SizedBox(width: 327.h, child: Divider(height: 1.v, thickness: 1.v, color: appTheme.blue50B5)));}, itemCount: controller.messageModelObj.value.moviedetailsItemList.value.length, itemBuilder: (context, index) {MoviedetailsItemModel model = controller.messageModelObj.value.moviedetailsItemList.value[index]; return MoviedetailsItemWidget(model);})); } 
+/// Navigates to the homeSettingsScreen when the action is triggered.
+onTapArrowDown() { Get.toNamed(AppRoutes.homeSettingsScreen, ); } 
+ }

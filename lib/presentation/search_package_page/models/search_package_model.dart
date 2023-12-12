@@ -1,0 +1,5 @@
+import '../../../core/app_export.dart';import 'orderdetailslist_item_model.dart';/// This class defines the variables used in the [search_package_page],
+/// and is typically used to hold data that is passed between different parts of the application.
+class SearchPackageModel {Rx<List<OrderdetailslistItemModel>> orderdetailslistItemList = Rx([OrderdetailslistItemModel(orderID: "Order ID: AA4587V".obs,packageName: "Electric package 1".obs,price: "50.00".obs),OrderdetailslistItemModel(orderID: "Order ID: AA4587V".obs,packageName: "Electric package 1".obs,price: "50.00".obs),OrderdetailslistItemModel(orderID: "Order ID: AA4587V".obs,packageName: "Electric package 1".obs,price: "50.00".obs),OrderdetailslistItemModel(orderID: "Order ID: AA4587V".obs,packageName: "Electric package 1".obs,price: "50.00".obs),OrderdetailslistItemModel(orderID: "Order ID: AA4587V".obs,packageName: "Electric package 1".obs,price: "50.00".obs),OrderdetailslistItemModel(orderID: "Order ID: AA4587V".obs,packageName: "Electric package 1".obs,price: "50.00".obs)]);
+
+ }

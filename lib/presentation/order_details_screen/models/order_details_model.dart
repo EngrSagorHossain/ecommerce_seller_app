@@ -1,0 +1,5 @@
+import '../../../core/app_export.dart';import 'orderdetailslist1_item_model.dart';/// This class defines the variables used in the [order_details_screen],
+/// and is typically used to hold data that is passed between different parts of the application.
+class OrderDetailsModel {Rx<List<Orderdetailslist1ItemModel>> orderdetailslist1ItemList = Rx([Orderdetailslist1ItemModel(moreText: "2 more".obs,orderText: "Order ID: AA4587V".obs,packageText: "Electric package 1".obs,priceText: "50.00".obs),Orderdetailslist1ItemModel(moreText: "2 more".obs,orderText: "Order ID: AA4587V".obs,packageText: "Electric package 1".obs,priceText: "50.00".obs),Orderdetailslist1ItemModel(moreText: "2 more".obs,orderText: "Order ID: AA4587V".obs,packageText: "Electric package 1".obs,priceText: "50.00".obs),Orderdetailslist1ItemModel(moreText: "2 more".obs,orderText: "Order ID: AA4587V".obs,packageText: "Electric package 1".obs,priceText: "50.00".obs),Orderdetailslist1ItemModel(moreText: "2 more".obs,orderText: "Order ID: AA4587V".obs,packageText: "Electric package 1".obs,priceText: "50.00".obs)]);
+
+ }
